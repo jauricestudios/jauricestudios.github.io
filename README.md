@@ -1,30 +1,24 @@
-# Global Markets, Quantitative & Commodity Research Notebook
+# Jaurice O'Connor
 
-This repository contains my research notebook exploring the intersection of mathematical finance, global macroeconomics, and commodity markets.
+Source repository for my personal portfolio.
 
-## Main areas
+I am a Mathematics graduate building projects around forecasting, pricing and risk, using statistical modelling and data analysis to investigate practical problems.
 
-- Mathematical finance
-- Stochastic processes
-- Monte Carlo simulation
-- Commodity market structure
-- Global macro drivers
-- Quantitative risk modelling
-- Research visualisations
+**Website:** https://jauricestudios.github.io
 
-## Live site
+## Work
 
-[View the live notebook](https://jauricestudios.github.io/jaurice-market-notes)
+Projects currently cover:
 
-## Purpose
+- energy pricing and market risk
+- commodity market analysis
+- forecasting
 
-The purpose of this repository is to build a structured research archive combining theory, modelling, and market analysis.
+## Tools
 
-It is designed as an evolving notebook rather than a finished textbook, with work spanning academic foundations, independent research, and applied market projects.
+Python · SQL · R · Excel
 
-## Author
+## Links
 
-Jaurice O'Connor
-
-- [LinkedIn](https://www.linkedin.com/in/jaurice-o-814a79373/)
-- [GitHub](https://github.com/jauricestudios)
+[LinkedIn](https://www.linkedin.com/in/jaurice-o-814a79373/)  
+[GitHub](https://github.com/jauricestudios)
