@@ -1,0 +1,173 @@
+
+/* =========================================================
+   FINAL SITE COLOUR OVERRIDE
+   Loaded after dark_theme_v5.css
+   ========================================================= */
+
+:root,
+html[data-theme="light"],
+html[data-theme="dark"] {
+  --pst-color-background: #2a1118 !important;
+  --pst-color-on-background: #f4efe8 !important;
+  --pst-color-surface: #1d0c11 !important;
+  --pst-color-text-base: #f4efe8 !important;
+  --pst-color-text-muted: #b9a9ac !important;
+  --pst-color-primary: #c4a27a !important;
+  --pst-color-link: #d5b88f !important;
+}
+
+
+/* Main project-page canvas */
+
+html,
+body,
+.bd-page-width,
+.bd-container,
+.bd-main,
+.bd-main-container,
+.bd-content,
+.bd-article-container,
+.bd-article,
+.bd-content > .bd-article-container,
+.bd-article-container > .bd-article {
+  background: #2a1118 !important;
+  background-color: #2a1118 !important;
+  color: #f4efe8 !important;
+}
+
+
+/* Catch any remaining main-content wrappers */
+
+body:not(:has(.portfolio-home)) .bd-main,
+body:not(:has(.portfolio-home)) .bd-main > *,
+body:not(:has(.portfolio-home)) .bd-content,
+body:not(:has(.portfolio-home)) .bd-content > *,
+body:not(:has(.portfolio-home)) main {
+  background-color: #2a1118 !important;
+}
+
+
+/* Header */
+
+.bd-header,
+.bd-header.navbar,
+.navbar,
+.navbar-header-items,
+.header-article-items,
+.header-article-items__start,
+.header-article-items__end {
+  background: #1d0c11 !important;
+  background-color: #1d0c11 !important;
+  border-color: rgba(196,162,122,0.20) !important;
+}
+
+
+/* Left navigation */
+
+.bd-sidebar-primary,
+.sidebar-primary-items__start,
+.sidebar-primary-items__end,
+.bd-sidebar-primary .sidebar-primary-item,
+.bd-sidebar-primary .navbar-brand {
+  background: #1d0c11 !important;
+  background-color: #1d0c11 !important;
+  color: #f4efe8 !important;
+}
+
+
+/* Right contents */
+
+.bd-sidebar-secondary,
+.bd-toc,
+.sidebar-secondary-items {
+  background: #2a1118 !important;
+  background-color: #2a1118 !important;
+}
+
+
+/* Navigation links */
+
+.bd-sidebar-primary .nav-link,
+.bd-toc .nav-link {
+  color: #d6c8c6 !important;
+}
+
+.bd-sidebar-primary .nav-link.active,
+.bd-toc .nav-link.active {
+  color: #f4efe8 !important;
+  background: rgba(196,162,122,0.12) !important;
+  border-left-color: #c4a27a !important;
+}
+
+
+/* Search */
+
+.search-button,
+.bd-search input,
+.form-control {
+  background: #35171f !important;
+  color: #f4efe8 !important;
+  border-color: rgba(196,162,122,0.28) !important;
+}
+
+
+/* =========================================================
+   PROJECT PAGE CONTENT CANVAS
+   Beat legacy high-specificity green rules
+   ========================================================= */
+
+html body .bd-main .bd-content,
+html body .bd-main .bd-content .bd-article-container,
+html body .bd-main .bd-content .bd-article,
+html body .bd-main .bd-content > .bd-article-container,
+html body .bd-main .bd-content .bd-article-container > .bd-article {
+  background: #2a1118 !important;
+  background-color: #2a1118 !important;
+  color: #f4efe8 !important;
+}
+
+/* Any article wrapper left over from the old green theme */
+
+html body .bd-page-width,
+html body .bd-main,
+html body .bd-main-container {
+  background: #2a1118 !important;
+  background-color: #2a1118 !important;
+}
+
+/* Let ordinary content inherit the oxblood canvas */
+
+html body .bd-article > section,
+html body .bd-article > div {
+  background-color: transparent !important;
+}
+
+
+
+/* =========================================================
+   PROJECT PAGE BACK LINK
+   ========================================================= */
+
+.project-back-link {
+  margin: 0 0 2rem 0;
+}
+
+.bd-article .project-back-link a {
+  display: inline-block !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+
+  color: #c4a27a !important;
+  text-decoration: none !important;
+}
+
+.bd-article .project-back-link a:hover {
+  color: #f4efe8 !important;
+}
+

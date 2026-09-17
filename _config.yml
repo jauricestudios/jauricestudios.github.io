@@ -30,6 +30,9 @@ sphinx:
       - "_static"
     html_css_files:
       - "dark_theme_v5.css"
+      - "oxblood_override.css"
+    html_js_files:
+      - "portfolio_nav.js"
     html_title: "Jaurice O'Connor | Risk Analytics Portfolio"
 
 exclude_patterns:

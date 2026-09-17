@@ -2,24 +2,26 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: Projects
+  - caption: Selected Work
     chapters:
       - file: projects/energy_pricing_model
-        title: 1. Energy Pricing & Commercial Scenario Model
+        title: Energy Pricing & Margin Stress Test
 
+  - caption: Energy Research
+    chapters:
       - file: projects/uk-gas-balance/overview
-        title: 2. UK Gas & LNG Case Study
+        title: UK Gas & LNG Case Study
 
       - file: gas-lng/uk_gas_price_pressure_exposure_model
-        title: 3. UK Gas Price Pressure and Exposure Model
+        title: UK Gas Price Pressure & Exposure Model
 
   - caption: Data & Methods
     chapters:
       - file: projects/gis-infrastructure-map
-        title: 1. GIS Infrastructure Map
+        title: GIS Infrastructure Map
 
       - file: projects/uk-gas-balance/sources
-        title: 2. Data
+        title: Data Sources
 
   - caption: About
     chapters:
