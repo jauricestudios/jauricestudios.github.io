@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome &#8212; Jaurice O&#39;Connor | Risk Analytics Portfolio</title>
+    <title>&lt;no title&gt; &#8212; Jaurice O&#39;Connor | Risk Analytics Portfolio</title>
   
   
   
@@ -34,13 +34,11 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/dark_theme_v5.css?v=ac81369b" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=5937c7ff" />
-    <link rel="stylesheet" type="text/css" href="_static/dark_theme_v4.css?v=65d6f55b" />
-    <link rel="stylesheet" type="text/css" href="_static/dark_theme_v3.css?v=f65c28ba" />
+    <link rel="stylesheet" type="text/css" href="_static/dark_theme_v5.css?v=0a549c34" />
+    <link rel="stylesheet" type="text/css" href="_static/oxblood_override.css?v=abeb4b8d" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -65,6 +63,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script src="_static/portfolio_nav.js?v=b992e701"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -166,16 +165,19 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Selected Work</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="projects/energy_pricing_model.html">1. Energy Pricing &amp; Commercial Scenario Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projects/uk-gas-balance/overview.html">2. UK Gas &amp; LNG Case Study</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gas-lng/uk_gas_price_pressure_exposure_model.html">3. UK Gas Price Pressure and Exposure Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/energy_pricing_model.html">Energy Pricing &amp; Margin Stress Test</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Energy Research</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="projects/uk-gas-balance/overview.html">UK Gas &amp; LNG Case Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gas-lng/uk_gas_price_pressure_exposure_model.html">UK Gas Price Pressure &amp; Exposure Model</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data &amp; Methods</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="projects/gis-infrastructure-map.html">1. GIS Infrastructure Map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projects/uk-gas-balance/sources.html">2. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/gis-infrastructure-map.html">GIS Infrastructure Map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projects/uk-gas-balance/sources.html">Data Sources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul class="nav bd-sidenav">
@@ -330,7 +332,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -340,12 +342,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-topics">Other Topics</a></li>
 </ul>
-</li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -356,37 +354,128 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome">
-<h1>Welcome<a class="headerlink" href="#welcome" title="Link to this heading">#</a></h1>
-<p>I’m Jaurice! A recent Mathematics graduate. This is a collection of projects exploring pricing, commodity markets, forecasting, commercial risk and my other interests. The aim is to use Python, Excel and market data to turn technical analysis into practical commercial insight.</p>
-<section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
-<section id="projects">
-<h3>Projects<a class="headerlink" href="#projects" title="Link to this heading">#</a></h3>
-<ol class="homepage-index">
-  <li><a href="projects/energy_pricing_model.html">Energy Pricing &amp; Commercial Scenario Model</a></li>
-  <li><a href="projects/uk-gas-balance/overview.html">UK Gas &amp; LNG Case Study</a></li>
-  <li><a href="gas-lng/uk_gas_price_pressure_exposure_model.html">UK Gas Price Pressure &amp; Exposure Model</a></li>
-</ol>
+  <div class="portfolio-home">
+<div class="portfolio-nav">
+  <a href="#selected-work">Projects</a>
+  <a href="about.html">About</a>
+  <a href="#" class="cv-link">CV</a>
+<p><a href="https://github.com/jauricestudios"
+     class="nav-icon"
+     aria-label="GitHub"
+     title="GitHub">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12 .7a11.3 11.3 0 0 0-3.57 22c.57.1.77-.25.77-.55v-2.16c-3.15.68-3.81-1.34-3.81-1.34-.52-1.3-1.27-1.65-1.27-1.65-1.04-.7.08-.69.08-.69 1.15.08 1.75 1.17 1.75 1.17 1.02 1.74 2.68 1.24 3.34.95.1-.73.4-1.24.73-1.52-2.52-.28-5.17-1.25-5.17-5.58 0-1.23.44-2.24 1.17-3.03-.12-.29-.51-1.44.11-2.99 0 0 .95-.3 3.12 1.16A10.9 10.9 0 0 1 12 6.09c.96 0 1.93.13 2.84.38 2.16-1.46 3.11-1.16 3.11-1.16.62 1.55.23 2.7.11 2.99.73.79 1.17 1.8 1.17 3.03 0 4.34-2.66 5.29-5.19 5.57.41.35.77 1.03.77 2.08v3.08c0 .3.21.66.78.55A11.3 11.3 0 0 0 12 .7Z"/>
+</svg>
+</a></p>
+<p><a href="https://www.linkedin.com/in/jaurice-o-814a79373/"
+     class="nav-icon"
+     aria-label="LinkedIn"
+     title="LinkedIn">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M5.34 3.5A2.34 2.34 0 1 1 .66 3.5a2.34 2.34 0 0 1 4.68 0ZM.94 7.02h4.8V22H.94V7.02Zm7.83 0h4.6v2.05h.06c.64-1.21 2.2-2.49 4.53-2.49 4.85 0 5.74 3.18 5.74 7.32V22h-4.79v-7.18c0-1.71-.03-3.91-2.39-3.91-2.39 0-2.75 1.86-2.75 3.79V22H8.77V7.02Z"/>
+</svg>
+</a></p>
+</div>
+<section class="portfolio-hero">
+<h1>Jaurice O’Connor</h1>
+<p class="portfolio-intro">
+Mathematics graduate building projects around forecasting, pricing and risk. I use statistical modelling and data analysis to investigate these problems and test what the data supports.
+</p>
+<p class="portfolio-tools">
+Python&nbsp;&nbsp;·&nbsp;&nbsp;SQL&nbsp;&nbsp;·&nbsp;&nbsp;R&nbsp;&nbsp;·&nbsp;&nbsp;Excel
+</p>
 </section>
-<section id="other-topics">
-<h3>Other Topics<a class="headerlink" href="#other-topics" title="Link to this heading">#</a></h3>
-<p><a href="projects/gis-infrastructure-map.html">GIS Infrastructure Map</a></p>
-<p><a href="projects/uk-gas-balance/sources.html">Data Sources &amp; Methodology</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This project is under construction 🚧 and new material will be added on an ongoing basis.</p>
-<p>If you find the project useful, please consider giving it a star on <a class="reference external" href="https://github.com/jauricestudios/jaurice-market-notes">GitHub</a>.</p>
+<hr class="portfolio-divider">
+<section id="selected-work" class="work-index">
+<div class="work-heading">
+  <p class="portfolio-kicker">SELECTED WORK</p>
+</div>
+<article class="work-entry">
+<div class="work-meta">
+  <span class="work-number">01</span>
+  <span>EUROPEAN GAS</span>
+</div>
+<h2>Norwegian Gas Outages &amp; TTF</h2>
+<p class="work-question">
+How does TTF react when an unexpected Norwegian gas outage is announced?
+</p>
+<p class="work-description">
+I reconstructed Gassco outage announcements to track when the market learned
+about each event, how outage estimates changed and what happened to TTF afterwards.
+</p>
+<div class="work-metrics">
+  <span><strong>376</strong> outage messages audited</span>
+  <span><strong>188</strong> first announcements reconstructed</span>
+  <span><strong>166</strong> primary reduction candidates</span>
+</div>
+<p class="work-methods">
+PostgreSQL · event study · time series
+</p>
+</article>
+<article class="work-entry">
+<div class="work-meta">
+  <span class="work-number">02</span>
+  <span>PRICING</span>
+</div>
+<h2>Energy Pricing &amp; Margin Stress Test</h2>
+<p class="work-question">
+Tests how changes in wholesale prices and demand affect margin.
+</p>
+<p class="work-description">
+Built in Python and Excel to compare base, stress and relief scenarios.
+</p>
+<p class="work-methods">
+Python · Excel · scenario analysis
+</p>
+<p class="work-link">
+<a href="projects/energy_pricing_model.html">View project →</a>
+</p>
+</article>
+<article class="work-entry">
+<div class="work-meta">
+  <span class="work-number">03</span>
+  <span>FMCG</span>
+</div>
+<h2>FMCG Promotion Incrementality</h2>
+<p class="work-question">
+Estimating which promotions create sales that would not have happened otherwise.
+</p>
+<p class="work-methods">
+SQL · causal inference · promotion analysis
+</p>
+</article>
+</section>
+<section class="portfolio-about">
+<div>
+<h2>About</h2>
+</div>
+<div>
+<p>
+Most of the work I enjoy starts before the modelling. I like figuring out what
+the data means, where it came from and whether the assumptions hold up. The model
+comes after that.
+</p>
+<p class="work-link">
+<a href="about.html">More about me →</a>
+</p>
 </div>
 </section>
-</section>
+<footer class="portfolio-footer">
+<p><span>Jaurice O’Connor · 2026</span></p>
+<div>
+  <a href="https://github.com/jauricestudios">GitHub</a>
+  <a href="https://www.linkedin.com/in/jaurice-o-814a79373/">LinkedIn</a>
+</div>
+</footer>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</section>
+<div class="toctree-wrapper compound">
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -445,12 +534,8 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-topics">Other Topics</a></li>
 </ul>
-</li>
-</ul>
+
   </nav></div>
 
 </div></div>
