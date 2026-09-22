@@ -2,11 +2,6 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: Selected Work
-    chapters:
-      - file: projects/energy_pricing_model
-        title: Energy Pricing & Margin Stress Test
-
   - caption: Energy Research
     chapters:
       - file: projects/uk-gas-balance/overview
