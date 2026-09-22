@@ -82,25 +82,21 @@ PostgreSQL · event study · time series
 
 <div class="work-meta">
   <span class="work-number">02</span>
-  <span>PRICING</span>
+  <span>GB POWER</span>
 </div>
 
-<h2>Energy Pricing &amp; Margin Stress Test</h2>
+<h2>Britain's Grid Bottleneck: The B6 Boundary</h2>
 
 <p class="work-question">
-Tests how changes in wholesale prices and demand affect margin.
+When does the Scotland–England transmission boundary become constrained?
 </p>
 
 <p class="work-description">
-Built in Python and Excel to compare base, stress and relief scenarios.
+Investigating how wind generation, electricity demand and system conditions contribute to constraint risk across the B6 boundary.
 </p>
 
 <p class="work-methods">
-Python · Excel · scenario analysis
-</p>
-
-<p class="work-link">
-<a href="projects/energy_pricing_model.html">View project →</a>
+Python · SQL · forecasting · power systems
 </p>
 
 </article>
@@ -110,10 +106,10 @@ Python · Excel · scenario analysis
 
 <div class="work-meta">
   <span class="work-number">03</span>
-  <span>FMCG</span>
+  <span>RETAIL</span>
 </div>
 
-<h2>FMCG Promotion Incrementality</h2>
+<h2>Retail Promotion Incrementality</h2>
 
 <p class="work-question">
 Estimating which promotions create sales that would not have happened otherwise.
@@ -121,6 +117,30 @@ Estimating which promotions create sales that would not have happened otherwise.
 
 <p class="work-methods">
 SQL · causal inference · promotion analysis
+</p>
+
+</article>
+
+
+<article class="work-entry">
+
+<div class="work-meta">
+  <span class="work-number">04</span>
+  <span>INSURANCE</span>
+</div>
+
+<h2>Insurance Pricing &amp; Claims Risk</h2>
+
+<p class="work-question">
+How should expected claims cost vary across heterogeneous risks?
+</p>
+
+<p class="work-description">
+Modelling claim frequency and severity to estimate expected loss costs and understand differences in risk.
+</p>
+
+<p class="work-methods">
+Python · GLMs · frequency-severity modelling
 </p>
 
 </article>
@@ -136,9 +156,15 @@ SQL · causal inference · promotion analysis
 
 <div>
 <p>
-Most of the work I enjoy starts before the modelling. I like figuring out what
-the data means, where it came from and whether the assumptions hold up. The model
-comes after that.
+Most of the work I enjoy starts before the modelling. I like figuring out what the data actually represents, where it came from and whether the assumptions behind it make sense.
+</p>
+
+<p>
+Maths gave me the tools to work with data, but my interest in economics and markets is what made me curious about what sits behind the numbers. Why did a price move? What changed demand? Is the pattern I'm seeing actually useful, or is something else driving it?
+</p>
+
+<p>
+Those are the kinds of questions behind the projects on this site.
 </p>
 
 <p class="work-link">
