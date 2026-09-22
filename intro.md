@@ -156,9 +156,15 @@ Python · GLMs · frequency-severity modelling
 
 <div>
 <p>
-Most of the work I enjoy starts before the modelling. I like figuring out what
-the data means, where it came from and whether the assumptions hold up. The model
-comes after that.
+Most of the work I enjoy starts before the modelling. I like figuring out what the data actually represents, where it came from and whether the assumptions behind it make sense.
+</p>
+
+<p>
+Maths gave me the tools to work with data, but my interest in economics and markets is what made me curious about what sits behind the numbers. Why did a price move? What changed demand? Is the pattern I'm seeing actually useful, or is something else driving it?
+</p>
+
+<p>
+Those are the kinds of questions behind the projects on this site.
 </p>
 
 <p class="work-link">
