@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Energy Pricing &amp; Commercial Scenario Model &#8212; Jaurice O&#39;Connor | Risk Analytics Portfolio</title>
+    <title>Norwegian Gas Outages &amp; TTF &#8212; Jaurice O&#39;Connor | Risk Analytics Portfolio</title>
   
   
   
@@ -62,11 +62,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/energy_pricing_model';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/norway-ttf-event-study';</script>
     <script src="../_static/portfolio_nav.js?v=b992e701"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="UK Gas Balance Study" href="uk-gas-balance/overview.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -118,8 +120,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -165,8 +165,8 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Energy Research</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="norway-ttf-event-study.html">Norwegian Gas Outages &amp; TTF</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Norwegian Gas Outages &amp; TTF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uk-gas-balance/overview.html">UK Gas &amp; LNG Case Study</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gas-lng/uk_gas_price_pressure_exposure_model.html">UK Gas Price Pressure &amp; Exposure Model</a></li>
 </ul>
@@ -252,7 +252,7 @@
       
       
       
-      <li><a href="../_sources/projects/energy_pricing_model.md" target="_blank"
+      <li><a href="../_sources/projects/norway-ttf-event-study.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +328,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Energy Pricing & Commercial Scenario Model</h1>
+    <h1>Norwegian Gas Outages & TTF</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -338,20 +338,21 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-summary">Project Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-question">Business Question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question">Research Question</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#at-a-glance">At a glance</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-layer-forecast-error-and-volume-at-risk">Python Layer: Forecast Error and Volume-at-Risk</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-error-results">Forecast Error Results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actual-vs-forecast-demand">Actual vs Forecast Demand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-error-distribution">Forecast Error Distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-at-risk">Volume-at-Risk</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#margin-at-risk">Margin-at-Risk</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-layer-cost-stack-and-breakeven-pricing">Excel Layer: Cost-Stack and Breakeven Pricing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commercial-interpretation">Commercial Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-funnel">Event Funnel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ttf-validation-and-event-windows">TTF Validation and Event Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-announcement-return-distribution">Post-announcement return distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outage-magnitude-and-subsequent-ttf-return">Outage magnitude and subsequent TTF return</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-interpretation">Analytical Interpretation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-demonstrated">Skills Demonstrated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-repository">Technical Repository</a></li>
 </ul>
             </nav>
         </div>
@@ -363,44 +364,14 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="energy-pricing-commercial-scenario-model">
-<h1>Energy Pricing &amp; Commercial Scenario Model<a class="headerlink" href="#energy-pricing-commercial-scenario-model" title="Link to this heading">#</a></h1>
-<section id="project-summary">
-<h2>Project Summary<a class="headerlink" href="#project-summary" title="Link to this heading">#</a></h2>
-<p>This project builds a public-data-informed energy pricing workflow for a fixed-price electricity contract. The aim is to test how wholesale price stress, non-commodity cost assumptions, forecast error and volume uncertainty affect the sale price needed to protect margin.</p>
-<p>The project combines two layers:</p>
-<ul class="simple">
-<li><p>a Python forecast-error and volume-at-risk model using public NESO demand data</p></li>
-<li><p>an Excel cost-stack and breakeven pricing model for commercial scenario analysis</p></li>
-</ul>
-<p>The model is not intended to replicate a full supplier pricing engine. It is a transparent portfolio project showing how public data, simplified assumptions and scenario analysis can support pricing judgement.</p>
-</section>
-<section id="business-question">
-<h2>Business Question<a class="headerlink" href="#business-question" title="Link to this heading">#</a></h2>
-<p>What fixed sale price is required to protect margin, and how much margin remains exposed if demand differs from forecast under stressed price conditions?</p>
-<p>Energy pricing risk is not only about the price per MWh. It is also about the volume exposed at that price. A contract can look acceptable under base assumptions but become risky if demand is higher than expected during expensive periods.</p>
-</section>
-<section id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h2>
-<p>Public NESO demand data<br />
-→ Python forecast-error model<br />
-→ Volume-at-risk calculation<br />
-→ Price-stress margin-at-risk<br />
-→ Excel cost-stack pricing model<br />
-→ Scenario and sensitivity analysis<br />
-→ Commercial recommendation</p>
-</section>
-<section id="python-layer-forecast-error-and-volume-at-risk">
-<h2>Python Layer: Forecast Error and Volume-at-Risk<a class="headerlink" href="#python-layer-forecast-error-and-volume-at-risk" title="Link to this heading">#</a></h2>
-<p>The Python model uses public NESO demand data for 2025 and 2026. A simple previous-day benchmark forecast is used:</p>
-<p><strong>Forecast demand = demand from the same settlement period yesterday</strong></p>
-<p>There are 48 half-hour settlement periods per day, so the model shifts demand by 48 rows.</p>
-<p>Forecast error is calculated as:</p>
-<p><strong>Forecast error = actual demand - forecast demand</strong></p>
-<p>The model then uses the P95 absolute forecast error as a practical volume-at-risk measure.</p>
-</section>
-<section id="forecast-error-results">
-<h2>Forecast Error Results<a class="headerlink" href="#forecast-error-results" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="norwegian-gas-outages-ttf">
+<h1>Norwegian Gas Outages &amp; TTF<a class="headerlink" href="#norwegian-gas-outages-ttf" title="Link to this heading">#</a></h1>
+<section id="research-question">
+<h2>Research Question<a class="headerlink" href="#research-question" title="Link to this heading">#</a></h2>
+<p><strong>How do near-term TTF prices behave around eligible first-revision Norwegian gas outage announcements, and do outage magnitude or publication timing help explain the observed response?</strong></p>
+<p>I reconstructed Gassco outage announcements, aligned their publication timestamps to observed TTF market dates and tested the distribution of subsequent price movements.</p>
+<section id="at-a-glance">
+<h3>At a glance<a class="headerlink" href="#at-a-glance" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Metric</p></th>
@@ -408,123 +379,139 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Mean error</p></td>
-<td class="text-right"><p>-6.63 MW</p></td>
+<tr class="row-even"><td><p>Eligible first-revision announcements</p></td>
+<td class="text-right"><p><strong>166</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p>Mean absolute error</p></td>
-<td class="text-right"><p>1,927.10 MW</p></td>
+<tr class="row-odd"><td><p>Unique TTF market anchors</p></td>
+<td class="text-right"><p><strong>130</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>P50 absolute error</p></td>
-<td class="text-right"><p>1,351.50 MW</p></td>
+<tr class="row-even"><td><p>Non-overlapping formal sample</p></td>
+<td class="text-right"><p><strong>82</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p>P90 absolute error</p></td>
-<td class="text-right"><p>4,420.00 MW</p></td>
+<tr class="row-odd"><td><p>Median post-anchor return</p></td>
+<td class="text-right"><p><strong>+0.057%</strong></p></td>
 </tr>
-<tr class="row-even"><td><p>P95 absolute error</p></td>
-<td class="text-right"><p>5,850.50 MW</p></td>
+<tr class="row-even"><td><p>95% bootstrap interval</p></td>
+<td class="text-right"><p><strong>-0.526% to +0.925%</strong></p></td>
 </tr>
-<tr class="row-odd"><td><p>P99 absolute error</p></td>
-<td class="text-right"><p>8,674.50 MW</p></td>
+<tr class="row-odd"><td><p>Wilcoxon p-value</p></td>
+<td class="text-right"><p><strong>0.689</strong></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>The mean error is close to zero, so the previous-day forecast is not strongly biased overall. However, the high percentile errors show that large demand misses can occur.</p>
+<p><strong>Main finding:</strong> the formal sample does not show a common unconditional directional TTF response following these outage announcements.</p>
+<p>Publication timing is important to the design. Of the 166 eligible announcements, 110 were published after the reported operational start of the outage and 56 were published before or at the start. The publication timestamp is therefore used as the information event for market alignment rather than assuming the physical outage start is when the market first learns about the disruption.</p>
 </section>
-<section id="actual-vs-forecast-demand">
-<h2>Actual vs Forecast Demand<a class="headerlink" href="#actual-vs-forecast-demand" title="Link to this heading">#</a></h2>
-<p><img alt="Actual versus previous-day forecast demand" src="energy_pricing_model/charts/actual_vs_forecast_demand.png" /></p>
-<p>The previous-day benchmark captures the broad daily demand shape, but it misses some peaks and troughs. These missed movements create volume exposure.</p>
 </section>
-<section id="forecast-error-distribution">
-<h2>Forecast Error Distribution<a class="headerlink" href="#forecast-error-distribution" title="Link to this heading">#</a></h2>
-<p><img alt="Forecast error distribution" src="energy_pricing_model/charts/forecast_error_distribution.png" /></p>
-<p>The error distribution is centred close to zero, but the tails show that larger forecast errors can occur. This supports using a high-percentile absolute forecast error as a volume-at-risk measure.</p>
+<section id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h2>
+<p>The project separates data engineering, market alignment and statistical analysis rather than treating the raw outage file as an event-study dataset.</p>
+<p><strong>Gassco outage files</strong><br />
+→ Python ingestion and type cleaning<br />
+→ PostgreSQL validation and eligibility rules<br />
+→ 166 eligible first-revision outage announcements<br />
+→ TTF market-data validation<br />
+→ publication-time alignment to observed TTF dates<br />
+→ 130 unique market anchors<br />
+→ 82 non-overlapping anchors for formal inference</p>
 </section>
-<section id="volume-at-risk">
-<h2>Volume-at-Risk<a class="headerlink" href="#volume-at-risk" title="Link to this heading">#</a></h2>
-<p>The P95 absolute forecast error is <strong>5,850.50 MW</strong>.</p>
-<p>Because each settlement period is half an hour, this is converted into MWh:</p>
-<p><strong>System volume-at-risk = 5,850.50 × 0.5 = 2,925.25 MWh</strong></p>
-<p>To avoid overstating the exposure, the model scales this by an illustrative 0.1% portfolio share:</p>
-<p><strong>Portfolio volume-at-risk = 2,925.25 × 0.001 = 2.93 MWh</strong></p>
-</section>
-<section id="margin-at-risk">
-<h2>Margin-at-Risk<a class="headerlink" href="#margin-at-risk" title="Link to this heading">#</a></h2>
+<section id="event-funnel">
+<h2>Event Funnel<a class="headerlink" href="#event-funnel" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Scenario</p></th>
-<th class="head text-right"><p>Price stress</p></th>
-<th class="head text-right"><p>Portfolio volume-at-risk</p></th>
-<th class="head text-right"><p>Portfolio margin-at-risk</p></th>
+<tr class="row-odd"><th class="head"><p>Analytical level</p></th>
+<th class="head text-right"><p>Observations</p></th>
+<th class="head"><p>Purpose</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Normal case</p></td>
-<td class="text-right"><p>GBP 77.18/MWh</p></td>
-<td class="text-right"><p>2.93 MWh</p></td>
-<td class="text-right"><p>GBP 225.77</p></td>
+<tr class="row-even"><td><p>Eligible announcements</p></td>
+<td class="text-right"><p><strong>166</strong></p></td>
+<td><p>Outage characteristics, publication timing and event composition</p></td>
 </tr>
-<tr class="row-odd"><td><p>Extreme case</p></td>
-<td class="text-right"><p>GBP 135.71/MWh</p></td>
-<td class="text-right"><p>2.93 MWh</p></td>
-<td class="text-right"><p>GBP 396.99</p></td>
+<tr class="row-odd"><td><p>Unique TTF market anchors</p></td>
+<td class="text-right"><p><strong>130</strong></p></td>
+<td><p>Avoid repeatedly counting the same TTF response window when announcements share an anchor</p></td>
 </tr>
-<tr class="row-even"><td><p>Spike case</p></td>
-<td class="text-right"><p>GBP 696.20/MWh</p></td>
-<td class="text-right"><p>2.93 MWh</p></td>
-<td class="text-right"><p>GBP 2,036.56</p></td>
+<tr class="row-even"><td><p>Non-overlapping anchors</p></td>
+<td class="text-right"><p><strong>82</strong></p></td>
+<td><p>Formal inference with mechanically overlapping return windows removed</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><img alt="Portfolio margin at risk by price scenario" src="energy_pricing_model/charts/portfolio_margin_at_risk_by_scenario.png" /></p>
-<p>The same volume miss becomes much more damaging when it occurs during a spike-price period.</p>
+<p>Multiple Gassco announcements can map to the same TTF market date. The 166 eligible announcements therefore correspond to 130 distinct market anchors rather than 166 independent price observations.</p>
+<p>The wider event windows also overlap for some nearby anchors. Requiring retained anchors to be separated by at least three observed TTF trading intervals leaves 82 non-overlapping observations for formal inference.</p>
 </section>
-<section id="excel-layer-cost-stack-and-breakeven-pricing">
-<h2>Excel Layer: Cost-Stack and Breakeven Pricing<a class="headerlink" href="#excel-layer-cost-stack-and-breakeven-pricing" title="Link to this heading">#</a></h2>
-<p>The Excel workbook estimates the fixed sale price needed to cover the full cost stack and target margin.</p>
-<p>The required sale price is calculated as:</p>
-<p><strong>Required Sale Price = Wholesale Cost + Network Cost + Policy Cost + Balancing Allowance + Operating Cost + Credit Allowance + Risk Premium + Target Margin</strong></p>
-<p>The margin buffer is calculated as:</p>
-<p><strong>Margin Buffer = Offered Sale Price - Required Sale Price</strong></p>
-<p>The workbook tests base, wholesale stress, non-commodity stress, combined stress and defensive pricing scenarios.</p>
+<section id="ttf-validation-and-event-windows">
+<h2>TTF Validation and Event Windows<a class="headerlink" href="#ttf-validation-and-event-windows" title="Link to this heading">#</a></h2>
+<p>The TTF series contains 591 unique daily observations from 1 July 2024 to 17 September 2026 and is validated before any event alignment is performed.</p>
+<p>Each eligible Gassco announcement is then mapped to the observed TTF calendar:</p>
+<ul class="simple">
+<li><p>117 announcements have a same-date TTF observation;</p></li>
+<li><p>49 require forward alignment to the next observed market date;</p></li>
+<li><p>of those 49, 30 are mapped forward by one calendar day, 18 by two days and one by three days.</p></li>
+</ul>
+<p>Because the market series is daily rather than intraday, the analysis does not claim to isolate an instantaneous announcement reaction. Instead, several daily response windows are examined around the aligned market anchor.</p>
 </section>
-<section id="commercial-interpretation">
-<h2>Commercial Interpretation<a class="headerlink" href="#commercial-interpretation" title="Link to this heading">#</a></h2>
-<p>The Excel layer answers: <strong>What price should be charged?</strong></p>
-<p>The Python layer answers: <strong>How much margin remains exposed if demand differs from forecast?</strong></p>
-<p>Together, the project shows that fixed-price energy contracts should be tested against both price risk and volume risk.</p>
-<p>The main commercial conclusion is that a fixed sale price should not be judged only against base wholesale cost. It should be tested against the full cost stack, stressed price conditions and forecast-volume uncertainty.</p>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h2>
+<p>Across the 130 unique market anchors, the median post-anchor ([0,+1]) return is +0.279%. This full sample is retained as a descriptive reference because some event windows overlap in trading time.</p>
+<p>Formal inference is based on the 82 non-overlapping anchors. Their median post-anchor return is +0.057%, with a 95% bootstrap confidence interval of -0.526% to +0.925%.</p>
+<p>The formal tests do not identify a common unconditional directional response:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Question</p></th>
+<th class="head text-right"><p>Estimate</p></th>
+<th class="head text-right"><p>Test result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Typical post-anchor return</p></td>
+<td class="text-right"><p>Median = <strong>+0.057%</strong></p></td>
+<td class="text-right"><p>Wilcoxon p = <strong>0.689</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Outage size vs return</p></td>
+<td class="text-right"><p>Spearman rho = <strong>0.050</strong></p></td>
+<td class="text-right"><p>p = <strong>0.656</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Publication timing</p></td>
+<td class="text-right"><p>Medians = <strong>-0.246% / +0.753%</strong></p></td>
+<td class="text-right"><p>Mann-Whitney p = <strong>0.496</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="post-announcement-return-distribution">
+<h3>Post-announcement return distribution<a class="headerlink" href="#post-announcement-return-distribution" title="Link to this heading">#</a></h3>
+<p><img alt="Distribution of post-announcement TTF returns" src="../_images/ttf_post_announcement_return_distribution.png" /></p>
+<p>The non-overlapping event sample shows a wide spread of positive and negative post-announcement returns, with the median close to zero. This visual pattern is consistent with the formal test, which does not identify a common directional shift in TTF after the eligible outage announcements.</p>
+</section>
+<section id="outage-magnitude-and-subsequent-ttf-return">
+<h3>Outage magnitude and subsequent TTF return<a class="headerlink" href="#outage-magnitude-and-subsequent-ttf-return" title="Link to this heading">#</a></h3>
+<p><img alt="Outage magnitude versus subsequent TTF return" src="../_images/outage_magnitude_vs_ttf_return.png" /></p>
+<p>Larger announced outages are followed by both positive and negative TTF movements. In the 82 non-overlapping anchors, the Spearman rank correlation between the largest outage within the market anchor and the subsequent return is 0.050, with a p-value of 0.656.</p>
+</section>
+</section>
+<section id="analytical-interpretation">
+<h2>Analytical Interpretation<a class="headerlink" href="#analytical-interpretation" title="Link to this heading">#</a></h2>
+<p>The more important finding is that headline outage capacity is a weak proxy for the market-relevant supply shock.</p>
+<p>A large announced reduction may have limited price impact if it was already anticipated, offset elsewhere in the Norwegian system or absorbed by prevailing market conditions. Conversely, a smaller outage may matter more if it represents genuinely new information about near-term supply.</p>
+<p>The analysis therefore suggests that a stronger market-risk signal would measure the <strong>unexpected change in net Norwegian supply at the time of publication</strong>, rather than relying on announced outage size alone.</p>
+<p>Publication timing reinforces this point: the physical start of an outage and the arrival of new public information are not the same event, so market analysis should anchor on when information becomes observable rather than simply when the infrastructure disruption begins.</p>
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
-<p>This project uses public data and simplified assumptions. It does not include real customer load profiles, live forward curves, actual hedge books, supplier tariff structures, collateral requirements, detailed network charging methodology or weather-adjusted demand forecasting.</p>
-<p>The portfolio share is illustrative. A real supplier or customer portfolio would need its own actual load profile and risk limits.</p>
+<p>The analysis uses daily market data, so it cannot isolate the immediate intraday price reaction to a timestamped announcement.</p>
+<p>The TTF dataset is a vendor-provided continuous futures series. The reported price should be interpreted as the vendor-reported closing price for that series rather than an official ICE settlement, and the historical contract-roll methodology has not been independently established.</p>
+<p>The event study is descriptive rather than causal. It does not directly measure the unexpected change in aggregate Norwegian supply, and contemporaneous market information may influence the same return windows.</p>
+<p>The non-overlapping sample reduces mechanical dependence caused by shared return intervals, but it does not imply that observations are fully independent across wider market regimes.</p>
 </section>
-<section id="files">
-<h2>Files<a class="headerlink" href="#files" title="Link to this heading">#</a></h2>
-<p>Main project files:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">energy_pricing_model/README.md</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">energy_pricing_model/scripts/forecast_error_volume_risk.py</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">energy_pricing_model/excel/energy_cost_stack_breakeven_model.xlsx</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">energy_pricing_model/outputs/forecast_error_summary.csv</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">energy_pricing_model/outputs/volume_at_risk_summary.csv</span></code></p></li>
-</ul>
-</section>
-<section id="skills-demonstrated">
-<h2>Skills Demonstrated<a class="headerlink" href="#skills-demonstrated" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Python data cleaning</p></li>
-<li><p>Forecast-error analysis</p></li>
-<li><p>Volume-at-risk calculation</p></li>
-<li><p>Public energy-market data use</p></li>
-<li><p>Excel cost-stack modelling</p></li>
-<li><p>Scenario and sensitivity analysis</p></li>
-<li><p>Commercial recommendation writing</p></li>
-<li><p>Model limitation documentation</p></li>
-</ul>
+<section id="technical-repository">
+<h2>Technical Repository<a class="headerlink" href="#technical-repository" title="Link to this heading">#</a></h2>
+<p>The full SQL/Python workflow, validation notebooks and statistical analysis are available in the technical repository:</p>
+<p><a class="reference external" href="https://github.com/jauricestudios/norway-ttf-event-study">View technical repository ↗</a></p>
 </section>
 </section>
 
@@ -558,6 +545,24 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="uk-gas-balance/overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">UK Gas Balance Study</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -576,20 +581,21 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-summary">Project Summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-question">Business Question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#research-question">Research Question</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#at-a-glance">At a glance</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-layer-forecast-error-and-volume-at-risk">Python Layer: Forecast Error and Volume-at-Risk</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-error-results">Forecast Error Results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actual-vs-forecast-demand">Actual vs Forecast Demand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forecast-error-distribution">Forecast Error Distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-at-risk">Volume-at-Risk</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#margin-at-risk">Margin-at-Risk</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-layer-cost-stack-and-breakeven-pricing">Excel Layer: Cost-Stack and Breakeven Pricing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commercial-interpretation">Commercial Interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-funnel">Event Funnel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ttf-validation-and-event-windows">TTF Validation and Event Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-announcement-return-distribution">Post-announcement return distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outage-magnitude-and-subsequent-ttf-return">Outage magnitude and subsequent TTF return</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-interpretation">Analytical Interpretation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-demonstrated">Skills Demonstrated</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-repository">Technical Repository</a></li>
 </ul>
   </nav></div>
 

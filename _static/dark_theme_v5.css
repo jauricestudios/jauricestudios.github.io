@@ -1251,7 +1251,11 @@ body:has(.portfolio-home) .bd-article-container {
   color: #91a79e !important;
   margin-top: 1.6rem !important;
 }
-
+.work-link {
+  margin-top: 0.9rem !important;
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 0.76rem !important;
+}
 
 /* Metrics — inline, no cards */
 
