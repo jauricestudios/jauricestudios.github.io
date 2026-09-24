@@ -57,12 +57,11 @@ Python&nbsp;&nbsp;·&nbsp;&nbsp;SQL&nbsp;&nbsp;·&nbsp;&nbsp;R&nbsp;&nbsp;·&nbs
 <h2>Norwegian Gas Outages &amp; TTF</h2>
 
 <p class="work-question">
-How does TTF react when an unexpected Norwegian gas outage is announced?
+How do near-term TTF prices behave around Norwegian gas outage announcements?
 </p>
 
 <p class="work-description">
-I reconstructed Gassco outage announcements to track when the market learned
-about each event, how outage estimates changed and what happened to TTF afterwards.
+I reconstructed Gassco outage announcements to align first-revision publications with TTF market dates, track how outage estimates changed and examine the price movements that followed.
 </p>
 
 <div class="work-metrics">
@@ -75,6 +74,17 @@ about each event, how outage estimates changed and what happened to TTF afterwar
 PostgreSQL · event study · time series
 </p>
 
+<p class="work-link">
+  <a href="projects/norway-ttf-event-study.html">
+    View project →
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/jauricestudios/norway-ttf-event-study"
+     target="_blank"
+     rel="noopener noreferrer">
+    Technical repository ↗
+  </a>
+</p>
 </article>
 
 

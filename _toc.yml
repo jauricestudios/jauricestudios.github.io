@@ -4,6 +4,9 @@ root: intro
 parts:
   - caption: Energy Research
     chapters:
+      - file: projects/norway-ttf-event-study
+        title: Norwegian Gas Outages & TTF
+
       - file: projects/uk-gas-balance/overview
         title: UK Gas & LNG Case Study
 
