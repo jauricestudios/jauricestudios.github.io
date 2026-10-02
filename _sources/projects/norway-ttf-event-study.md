@@ -25,13 +25,13 @@ Publication timing is important to the design. Of the 166 eligible announcements
 
 The project separates data engineering, market alignment and statistical analysis rather than treating the raw outage file as an event-study dataset.
 
-**Gassco outage files**  
-→ Python ingestion and type cleaning  
-→ PostgreSQL validation and eligibility rules  
-→ 166 eligible first-revision outage announcements  
-→ TTF market-data validation  
-→ publication-time alignment to observed TTF dates  
-→ 130 unique market anchors  
+**Gassco outage files**<br>
+→ Python ingestion and type cleaning<br>
+→ PostgreSQL validation and eligibility rules<br>
+→ 166 eligible first-revision outage announcements<br>
+→ TTF market-data validation<br>
+→ publication-time alignment to observed TTF dates<br>
+→ 130 unique market anchors<br>
 → 82 non-overlapping anchors for formal inference
 
 ## Event Funnel
@@ -117,5 +117,3 @@ The non-overlapping sample reduces mechanical dependence caused by shared return
 The full SQL/Python workflow, validation notebooks and statistical analysis are available in the technical repository:
 
 [View technical repository ↗](https://github.com/jauricestudios/norway-ttf-event-study)
-
-

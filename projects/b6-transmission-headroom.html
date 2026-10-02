@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>B6 Transmission Headroom &amp; Scottish Wind Balancing &#8212; Jaurice O&#39;Connor | Risk Analytics Portfolio</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/dark_theme_v5.css?v=dbc116a1" />
+    <link rel="stylesheet" type="text/css" href="../_static/oxblood_override.css?v=abeb4b8d" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/b6-transmission-headroom';</script>
+    <script src="../_static/portfolio_nav.js?v=b992e701"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data" href="uk-gas-balance/sources.html" />
+    <link rel="prev" title="Norwegian Gas Outages &amp; TTF" href="norway-ttf-event-study.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Jaurice O'Connor | Risk Analytics Portfolio - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Jaurice O'Connor | Risk Analytics Portfolio - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Energy Research</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="norway-ttf-event-study.html">Norwegian Gas Outages &amp; TTF</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">B6 Transmission Headroom</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data &amp; Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="uk-gas-balance/sources.html">Data Sources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/jauricestudios/jaurice-market-notes" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/projects/b6-transmission-headroom.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>B6 Transmission Headroom & Scottish Wind Balancing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#at-a-glance">At a glance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-sample">Building the sample</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-b6-headroom">Measuring B6 headroom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-clear-raw-pattern-appears-at-low-headroom">A clear raw pattern appears at low headroom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wind-is-the-main-confounder">Wind is the main confounder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-test">Predictive test</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-occurrence">Event occurrence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-calibration">Probability calibration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicting-the-size-of-an-action-is-harder">Predicting the size of an action is harder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combined-two-part-forecast">Combined two-part forecast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robustness-checks">Robustness checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-i-think-the-result-says">What I think the result says</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-files">Project files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data sources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b6-transmission-headroom-scottish-wind-balancing">
+<h1>B6 Transmission Headroom &amp; Scottish Wind Balancing<a class="headerlink" href="#b6-transmission-headroom-scottish-wind-balancing" title="Link to this heading">#</a></h1>
+<p><strong>Question:</strong> Does day-ahead B6 headroom improve prediction of later downward Balancing Mechanism activity on Scottish wind units?</p>
+<p>This started with a simple question. Scotland has a large share of Britain’s wind generation, while much of electricity demand sits further south. When wind output is high, the network has to move more power south. I wanted to know whether the day-ahead information NESO publishes for the B6 boundary tells us anything useful before delivery, rather than only helping explain balancing actions afterwards.</p>
+<p>I treat B6 as a predictor, not a causal label. The Balancing Mechanism data show which downward wind actions occurred, but they do not say which transmission boundary caused each action.</p>
+<section id="at-a-glance">
+<h2>At a glance<a class="headerlink" href="#at-a-glance" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Result</p></th>
+<th class="head text-right"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>B6 + Scottish wind BOA sample</p></td>
+<td class="text-right"><p><strong>42,332 settlement periods</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Verified-wind modelling sample</p></td>
+<td class="text-right"><p><strong>31,532 settlement periods</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Event-model ROC AUC</p></td>
+<td class="text-right"><p><strong>0.817 → 0.862</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Combined-model MAE</p></td>
+<td class="text-right"><p><strong>899.8 → 860.1 MW</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Combined-model R²</p></td>
+<td class="text-right"><p><strong>0.47 → 0.50</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Main finding:</strong> B6 headroom is most useful for predicting whether downward Scottish wind activity occurs. It adds much less when the task changes to estimating the exact size of the action.</p>
+</section>
+<section id="building-the-sample">
+<h2>Building the sample<a class="headerlink" href="#building-the-sample" title="Link to this heading">#</a></h2>
+<p>The starting NESO constraint file contains 728,529 observations across 31 constraint groups. I isolate the SCOTEX/B6 group, remove 96 exact duplicates, preserve legitimate repeated clock times on autumn daylight-saving days, and align the boundary data to Scottish wind BOAs, demand forecasts and wind forecasts by settlement date and settlement period.</p>
+<p>The biggest break in the data is 22 April 2024. NESO changed the published day-ahead flow methodology on that date, and the distribution of B6 headroom changes sharply around it. I keep the earlier data for validation but start the main analysis after the methodology change instead of treating the two regimes as directly comparable.</p>
+<p>The final descriptive sample contains 42,332 settlement periods across 882 days. The predictive sample is smaller because I only use wind-forecast dates where the publication timing can be verified as preceding delivery.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Sample</p></th>
+<th class="head text-right"><p>Periods</p></th>
+<th class="head text-right"><p>Days</p></th>
+<th class="head"><p>Use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>B6 + Scottish wind BOA</p></td>
+<td class="text-right"><p><strong>42,332</strong></p></td>
+<td class="text-right"><p><strong>882</strong></p></td>
+<td><p>Descriptive analysis</p></td>
+</tr>
+<tr class="row-odd"><td><p>Verified-wind sample</p></td>
+<td class="text-right"><p><strong>31,532</strong></p></td>
+<td class="text-right"><p><strong>657</strong></p></td>
+<td><p>Predictive modelling</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="measuring-b6-headroom">
+<h2>Measuring B6 headroom<a class="headerlink" href="#measuring-b6-headroom" title="Link to this heading">#</a></h2>
+<p>For settlement period (t), I define headroom as</p>
+<div class="math notranslate nohighlight">
+\[
+H_t^{B6}=L_t^{B6}-F_t^{B6}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(L_t^{B6}\)</span> is the published B6 transfer limit and <span class="math notranslate nohighlight">\(F_t^{B6}\)</span> is the corresponding forecast flow.</p>
+<p>Lower headroom means forecast flow is closer to the published limit. Negative headroom means the published forecast flow is above the published limit in that direction. I do <strong>not</strong> treat that as proof of a realised physical overload.</p>
+<p>Across the post-change sample, median headroom is about 1.0 GW and roughly one third of settlement periods have negative headroom.</p>
+<p><img alt="Distribution of day-ahead B6 headroom" src="../_images/b6-headroom-distribution.png" /></p>
+</section>
+<section id="a-clear-raw-pattern-appears-at-low-headroom">
+<h2>A clear raw pattern appears at low headroom<a class="headerlink" href="#a-clear-raw-pattern-appears-at-low-headroom" title="Link to this heading">#</a></h2>
+<p>Before adding any controls, I split the sample into B6-headroom deciles. The lowest-headroom periods have much more downward wind activity than most of the higher-headroom groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Headroom decile</p></th>
+<th class="head text-right"><p>Downward BOA event rate</p></th>
+<th class="head text-right"><p>Mean downward BOA</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1, lowest headroom</p></td>
+<td class="text-right"><p><strong>99.8%</strong></p></td>
+<td class="text-right"><p><strong>3,638 MW</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td class="text-right"><p>96.3%</p></td>
+<td class="text-right"><p>2,308 MW</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td class="text-right"><p>90.1%</p></td>
+<td class="text-right"><p>1,417 MW</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td class="text-right"><p>78.6%</p></td>
+<td class="text-right"><p>994 MW</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td class="text-right"><p>65.9%</p></td>
+<td class="text-right"><p>885 MW</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td class="text-right"><p>51.3%</p></td>
+<td class="text-right"><p>643 MW</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td class="text-right"><p>44.1%</p></td>
+<td class="text-right"><p>500 MW</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td class="text-right"><p>32.6%</p></td>
+<td class="text-right"><p>320 MW</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td class="text-right"><p><strong>20.4%</strong></p></td>
+<td class="text-right"><p><strong>189 MW</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>10, highest headroom</p></td>
+<td class="text-right"><p>31.2%</p></td>
+<td class="text-right"><p>617 MW</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img alt="Event rate by B6 headroom decile" src="../_images/event-rate-by-headroom-decile.png" /></p>
+<p><img alt="Mean downward BOA by B6 headroom decile" src="../_images/mean-boa-by-headroom-decile.png" /></p>
+<p>The rebound in decile 10 is important rather than something to hide. That group contains unusual high-limit states, including a published 10,000 MW B6 limit, as well as periods where forecast flow is in the opposite direction. I keep those observations in the main sample and test them separately later.</p>
+</section>
+<section id="wind-is-the-main-confounder">
+<h2>Wind is the main confounder<a class="headerlink" href="#wind-is-the-main-confounder" title="Link to this heading">#</a></h2>
+<p>High forecast wind can both tighten the north-south transfer position and increase the amount of Scottish wind available to be turned down. The raw B6 relationship therefore cannot be interpreted on its own.</p>
+<p>Within the verified-wind sample:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Relationship</p></th>
+<th class="head text-right"><p>Correlation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Forecast wind vs B6 headroom</p></td>
+<td class="text-right"><p><strong>-0.508</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Forecast wind vs downward BOA volume</p></td>
+<td class="text-right"><p><strong>+0.742</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Forecast wind vs event occurrence</p></td>
+<td class="text-right"><p><strong>+0.583</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Demand forecast vs event occurrence</p></td>
+<td class="text-right"><p>-0.029</p></td>
+</tr>
+<tr class="row-even"><td><p>Residual demand vs event occurrence</p></td>
+<td class="text-right"><p>-0.405</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>I then compare B6 headroom within forecast-wind quintiles. The pattern survives through the first four wind groups: event frequency generally falls as headroom rises. In the highest-wind group, downward activity is already present in roughly 94–100% of periods, so there is very little event variation left for B6 to separate.</p>
+<p><img alt="Downward wind BOA event rate within forecast-wind groups" src="../_images/event-rate-within-wind-quintiles.png" /></p>
+</section>
+<section id="predictive-test">
+<h2>Predictive test<a class="headerlink" href="#predictive-test" title="Link to this heading">#</a></h2>
+<p>The main modelling question is narrower than the descriptive analysis:</p>
+<blockquote>
+<div><p>Does B6 headroom improve prediction after forecast wind, forecast demand and calendar conditions are already in the model?</p>
+</div></blockquote>
+<p>I split the modelling sample chronologically. The earlier 25,198 periods are used for model development and the later 6,334 periods, from 7 October 2025 to 23 April 2026, are used for evaluation. The event rate rises from about 59% in the earlier sample to 69% later, so this is not a stationary random train-test split.</p>
+<p>The later period was inspected during development, so I call it an <strong>evaluation period</strong>, not an untouched confirmatory test set.</p>
+<section id="event-occurrence">
+<h3>Event occurrence<a class="headerlink" href="#event-occurrence" title="Link to this heading">#</a></h3>
+<p>I compare two logistic models:</p>
+<ul class="simple">
+<li><p><strong>M0:</strong> forecast wind + forecast demand + calendar variables</p></li>
+<li><p><strong>M1:</strong> the same controls + B6 headroom</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head text-right"><p>ROC AUC</p></th>
+<th class="head text-right"><p>Average precision</p></th>
+<th class="head text-right"><p>Brier score</p></th>
+<th class="head text-right"><p>Log loss</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Controls only</p></td>
+<td class="text-right"><p><strong>0.817</strong></p></td>
+<td class="text-right"><p><strong>0.909</strong></p></td>
+<td class="text-right"><p>0.172</p></td>
+<td class="text-right"><p>0.530</p></td>
+</tr>
+<tr class="row-odd"><td><p>Controls + B6 headroom</p></td>
+<td class="text-right"><p><strong>0.862</strong></p></td>
+<td class="text-right"><p><strong>0.936</strong></p></td>
+<td class="text-right"><p><strong>0.149</strong></p></td>
+<td class="text-right"><p><strong>0.475</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Forecast wind, demand and timing already explain a lot. B6 still improves every reported event metric, with the clearest change in ROC AUC from 0.817 to 0.862.</p>
+</section>
+<section id="probability-calibration">
+<h3>Probability calibration<a class="headerlink" href="#probability-calibration" title="Link to this heading">#</a></h3>
+<p>Because the event probability is later multiplied by a conditional volume forecast, the probability level matters as well as ranking. I fit the event model on an earlier block, use a separate chronological calibration block for Platt scaling, and leave the later evaluation period outside both.</p>
+<p>For the B6 model, calibration reduces the Brier score from about <strong>0.150 to 0.142</strong> and log loss from <strong>0.475 to 0.436</strong> while leaving ROC AUC and average precision essentially unchanged.</p>
+<p><img alt="Event probability calibration" src="../_images/event-probability-calibration.png" /></p>
+</section>
+</section>
+<section id="predicting-the-size-of-an-action-is-harder">
+<h2>Predicting the size of an action is harder<a class="headerlink" href="#predicting-the-size-of-an-action-is-harder" title="Link to this heading">#</a></h2>
+<p>The second stage models downward BOA volume only when activity is positive. The outcome is positive and right-skewed, so I use Gamma regression with a log link.</p>
+<p>A simple linear B6 term does <strong>not</strong> improve the magnitude model. On the later evaluation period, MAE rises from 1,011 MW to 1,045 MW and R² falls from 0.350 to 0.272.</p>
+<p>I therefore compare nonlinear B6 specifications on a separate internal chronological validation block before returning to the later evaluation period. A cubic B6 spline plus an indicator for the 10,000 MW limit state performs best of the candidates, but the gain is modest.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Positive-event magnitude model</p></th>
+<th class="head text-right"><p>MAE</p></th>
+<th class="head text-right"><p>RMSE</p></th>
+<th class="head text-right"><p>R²</p></th>
+<th class="head text-right"><p>Gamma deviance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Controls only</p></td>
+<td class="text-right"><p><strong>1,010.7 MW</strong></p></td>
+<td class="text-right"><p>1,286.8 MW</p></td>
+<td class="text-right"><p>0.350</p></td>
+<td class="text-right"><p>0.828</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nonlinear B6</p></td>
+<td class="text-right"><p><strong>996.5 MW</strong></p></td>
+<td class="text-right"><p><strong>1,282.3 MW</strong></p></td>
+<td class="text-right"><p><strong>0.354</strong></p></td>
+<td class="text-right"><p><strong>0.799</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is the main distinction in the project: B6 is much more informative about <strong>whether</strong> downward activity occurs than about <strong>how large</strong> the eventual action will be.</p>
+</section>
+<section id="combined-two-part-forecast">
+<h2>Combined two-part forecast<a class="headerlink" href="#combined-two-part-forecast" title="Link to this heading">#</a></h2>
+<p>I combine the calibrated event probability with the conditional magnitude forecast:</p>
+<div class="math notranslate nohighlight">
+\[
+E(C_t \mid X_t)
+=
+P(C_t&gt;0 \mid X_t)
+\times
+E(C_t \mid C_t&gt;0, X_t)
+\]</div>
+<p>Both the controls-only and B6 systems use the same chronological probability-calibration procedure.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Model</p></th>
+<th class="head text-right"><p>MAE</p></th>
+<th class="head text-right"><p>RMSE</p></th>
+<th class="head text-right"><p>R²</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Controls only</p></td>
+<td class="text-right"><p><strong>899.8 MW</strong></p></td>
+<td class="text-right"><p>1,230.8 MW</p></td>
+<td class="text-right"><p>0.47</p></td>
+</tr>
+<tr class="row-odd"><td><p>B6-enhanced</p></td>
+<td class="text-right"><p><strong>860.1 MW</strong></p></td>
+<td class="text-right"><p><strong>1,192.9 MW</strong></p></td>
+<td class="text-right"><p><strong>0.50</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The B6 version cuts MAE by about <strong>4.4%</strong>. It is still biased high in the later period: mean observed downward BOA is about 1,549 MW, while the mean B6 forecast is about 1,780 MW. Better discrimination does not mean the level forecast is perfectly calibrated to the later operating regime.</p>
+</section>
+<section id="robustness-checks">
+<h2>Robustness checks<a class="headerlink" href="#robustness-checks" title="Link to this heading">#</a></h2>
+<p>I did not want the result to depend on one unusual data state or one exact definition of B6 stress.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Check</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Remove 10,000 MW observations from evaluation</p></td>
+<td><p>B6 MAE <strong>860 MW</strong> vs controls <strong>900 MW</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Remove 10,000 MW observations from fitting, calibration and evaluation</p></td>
+<td><p>B6 MAE <strong>840 MW</strong> vs controls <strong>893 MW</strong>; R² <strong>0.51 vs 0.47</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Replace continuous headroom with a negative-headroom flag</p></td>
+<td><p>ROC AUC <strong>0.854</strong> vs controls <strong>0.817</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Use continuous headroom</p></td>
+<td><p>ROC AUC <strong>0.862</strong>, better than the binary flag</p></td>
+</tr>
+<tr class="row-even"><td><p>Compare later months separately</p></td>
+<td><p>B6 has lower MAE in <strong>6 of 7</strong> represented months</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>January 2026 is roughly neutral, with the B6 MAE about 0.5% higher. October and November contain relatively few verified-wind observations, so I would not place much weight on their month-level percentages.</p>
+</section>
+<section id="what-i-think-the-result-says">
+<h2>What I think the result says<a class="headerlink" href="#what-i-think-the-result-says" title="Link to this heading">#</a></h2>
+<p>The result is not that B6 explains Scottish wind balancing on its own. Wind, demand and calendar conditions already produce a strong baseline, and the Scottish network contains several interacting and nested constraints.</p>
+<p>What B6 adds is a useful day-ahead signal about <strong>event occurrence</strong>. Its contribution to the exact size of the action is smaller, which makes sense in a system where final balancing volume can depend on several network conditions and operational decisions that are not represented by one boundary measure.</p>
+<p>That is why I keep the conclusion predictive rather than causal.</p>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading">#</a></h2>
+<p>The main limitations are:</p>
+<ul class="simple">
+<li><p>the BOA data do not identify B6 as the cause of each individual wind action;</p></li>
+<li><p>the wind forecast is system-level rather than a geographically detailed Scottish forecast;</p></li>
+<li><p>B6 headroom uses published day-ahead flows and limits, not realised network flows;</p></li>
+<li><p>the verified-wind modelling sample ends in April 2026 and covers a relatively recent operating regime;</p></li>
+<li><p>the later evaluation period was inspected during development;</p></li>
+<li><p>neighbouring settlement periods are serially related;</p></li>
+<li><p>the models deliberately omit potentially useful drivers such as detailed generation location, interconnector conditions, outages on neighbouring boundaries and the full network state.</p></li>
+</ul>
+<p>A genuinely prospective evaluation on future observations would be the next test I would want to run.</p>
+</section>
+<section id="project-files">
+<h2>Project files<a class="headerlink" href="#project-files" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/jauricestudios/jauricestudios.github.io/blob/main/projects/b6-transmission-headroom/01_b6_analysis.ipynb">Jupyter notebook ↗</a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/61cbad7b7c7711f8a2951af87f8564ed/B6_report.pdf"><span class="xref download myst">Full report PDF ↗</span></a></p></li>
+</ul>
+</section>
+<section id="data-sources">
+<h2>Data sources<a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.neso.energy/data-portal/day-ahead-constraint-flows-and-limits">NESO Day Ahead Constraint Flows and Limits</a></p></li>
+<li><p><a class="reference external" href="https://www.neso.energy/data-portal/wind-bmu-boa-volumes">NESO Wind BOA Volumes</a></p></li>
+<li><p><a class="reference external" href="https://www.neso.energy/data-portal/day-ahead-wind-forecast/historic_day_ahead_wind_forecasts">NESO Historic Day Ahead Wind Forecasts</a></p></li>
+<li><p><a class="reference external" href="https://www.neso.energy/data-portal/day-ahead-half-hourly-demand-forecast-performance">NESO Day Ahead Half Hourly Demand Forecast Performance</a></p></li>
+<li><p><a class="reference external" href="https://www.neso.energy/publications/electricity-ten-year-statement-etys/electricity-transmission-network-requirements/scottish-boundaries">NESO Electricity Ten Year Statement: Scottish boundaries</a></p></li>
+<li><p><a class="reference external" href="https://bscdocs.elexon.co.uk/guidance-notes/the-balancing-and-settlement-code-bsc-arrangements">Elexon Balancing and Settlement Code guidance</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./projects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="norway-ttf-event-study.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Norwegian Gas Outages &amp; TTF</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="uk-gas-balance/sources.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#at-a-glance">At a glance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-sample">Building the sample</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-b6-headroom">Measuring B6 headroom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-clear-raw-pattern-appears-at-low-headroom">A clear raw pattern appears at low headroom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wind-is-the-main-confounder">Wind is the main confounder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predictive-test">Predictive test</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#event-occurrence">Event occurrence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-calibration">Probability calibration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicting-the-size-of-an-action-is-harder">Predicting the size of an action is harder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combined-two-part-forecast">Combined two-part forecast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#robustness-checks">Robustness checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-i-think-the-result-says">What I think the result says</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-files">Project files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data sources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jaurice O'Connor
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
