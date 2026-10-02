@@ -75,15 +75,15 @@ Python · PostgreSQL · logistic regression · Gamma regression
 </p>
 
 <p class="work-link">
-  <a href="projects/b6-transmission-headroom.html">
-    View project →
-  </a>
+  <a href="projects/b6-transmission-headroom.html">View project →</a>
   &nbsp;&nbsp;
   <a href="https://github.com/jauricestudios/jauricestudios.github.io/blob/main/projects/b6-transmission-headroom/01_b6_analysis.ipynb"
      target="_blank"
-     rel="noopener noreferrer">
-    Technical notebook ↗
-  </a>
+     rel="noopener noreferrer">Notebook ↗</a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/jauricestudios/jauricestudios.github.io/blob/main/projects/b6-transmission-headroom/B6_report.pdf"
+     target="_blank"
+     rel="noopener noreferrer">PDF ↗</a>
 </p>
 </article>
 
