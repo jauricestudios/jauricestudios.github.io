@@ -51,6 +51,47 @@ Python&nbsp;&nbsp;·&nbsp;&nbsp;SQL&nbsp;&nbsp;·&nbsp;&nbsp;R&nbsp;&nbsp;·&nbs
 
 <div class="work-meta">
   <span class="work-number">01</span>
+  <span>GB POWER</span>
+</div>
+
+<h2>B6 Transmission Headroom &amp; Scottish Wind Balancing</h2>
+
+<p class="work-question">
+Does day-ahead B6 headroom improve prediction of later Scottish wind balancing activity?
+</p>
+
+<p class="work-description">
+I combined NESO boundary data with wind and demand forecasts and Scottish wind Balancing Mechanism actions, then compared models with and without B6 headroom.
+</p>
+
+<div class="work-metrics">
+  <span><strong>42,332</strong> settlement periods analysed</span>
+  <span><strong>31,532</strong> verified-wind modelling sample</span>
+  <span><strong>0.817 → 0.862</strong> ROC AUC</span>
+</div>
+
+<p class="work-methods">
+Python · PostgreSQL · logistic regression · Gamma regression
+</p>
+
+<p class="work-link">
+  <a href="projects/b6-transmission-headroom.html">
+    View project →
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/jauricestudios/jauricestudios.github.io/blob/main/projects/b6-transmission-headroom/01_b6_analysis.ipynb"
+     target="_blank"
+     rel="noopener noreferrer">
+    Technical notebook ↗
+  </a>
+</p>
+</article>
+
+
+<article class="work-entry">
+
+<div class="work-meta">
+  <span class="work-number">02</span>
   <span>EUROPEAN GAS</span>
 </div>
 
@@ -85,74 +126,6 @@ PostgreSQL · event study · time series
     Technical repository ↗
   </a>
 </p>
-</article>
-
-
-<article class="work-entry">
-
-<div class="work-meta">
-  <span class="work-number">02</span>
-  <span>GB POWER</span>
-</div>
-
-<h2>Britain's Grid Bottleneck: The B6 Boundary</h2>
-
-<p class="work-question">
-When does the Scotland–England transmission boundary become constrained?
-</p>
-
-<p class="work-description">
-Investigating how wind generation, electricity demand and system conditions contribute to constraint risk across the B6 boundary.
-</p>
-
-<p class="work-methods">
-Python · SQL · forecasting · power systems
-</p>
-
-</article>
-
-
-<article class="work-entry">
-
-<div class="work-meta">
-  <span class="work-number">03</span>
-  <span>RETAIL</span>
-</div>
-
-<h2>Retail Promotion Incrementality</h2>
-
-<p class="work-question">
-Estimating which promotions create sales that would not have happened otherwise.
-</p>
-
-<p class="work-methods">
-SQL · causal inference · promotion analysis
-</p>
-
-</article>
-
-
-<article class="work-entry">
-
-<div class="work-meta">
-  <span class="work-number">04</span>
-  <span>INSURANCE</span>
-</div>
-
-<h2>Insurance Pricing &amp; Claims Risk</h2>
-
-<p class="work-question">
-How should expected claims cost vary across heterogeneous risks?
-</p>
-
-<p class="work-description">
-Modelling claim frequency and severity to estimate expected loss costs and understand differences in risk.
-</p>
-
-<p class="work-methods">
-Python · GLMs · frequency-severity modelling
-</p>
-
 </article>
 
 </section>

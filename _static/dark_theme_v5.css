@@ -2144,3 +2144,171 @@ hr {
   border-color: rgba(196,162,122,0.20) !important;
 }
 
+
+/* =========================================================
+   B6 PROJECT PAGE POLISH
+   ========================================================= */
+
+/* Keep this research page closer to the clean homepage typography. */
+#b6-transmission-headroom-scottish-wind-balancing h1,
+#b6-transmission-headroom-scottish-wind-balancing h2,
+#b6-transmission-headroom-scottish-wind-balancing h3,
+#b6-transmission-headroom-scottish-wind-balancing h4 {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-style: normal !important;
+  letter-spacing: -0.025em !important;
+}
+
+#b6-transmission-headroom-scottish-wind-balancing h1 {
+  font-size: 2.55rem !important;
+  line-height: 1.08 !important;
+  font-weight: 700 !important;
+}
+
+#b6-transmission-headroom-scottish-wind-balancing h2 {
+  font-size: 1.55rem !important;
+  line-height: 1.25 !important;
+  font-weight: 650 !important;
+  margin-top: 2.5rem !important;
+}
+
+#b6-transmission-headroom-scottish-wind-balancing h3 {
+  font-size: 1.15rem !important;
+  font-weight: 650 !important;
+}
+
+/* Analytical figures should stay white, like report exhibits. */
+#b6-transmission-headroom-scottish-wind-balancing img {
+  display: block;
+  background: #ffffff !important;
+  padding: 0.55rem !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  border-radius: 2px !important;
+  margin: 1.25rem auto 2rem !important;
+  max-width: 100% !important;
+}
+
+/* Make both top links equally visible. */
+#b6-transmission-headroom-scottish-wind-balancing .hero-links a {
+  opacity: 1 !important;
+  color: #2a1118 !important;
+  background: #f4eee7 !important;
+  border-color: #f4eee7 !important;
+}
+
+/* Data-source links should read like references, not a wall of pills. */
+#b6-transmission-headroom-scottish-wind-balancing #data-sources a {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  color: #e1c29b !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+/* Slightly more breathing room around display maths. */
+#b6-transmission-headroom-scottish-wind-balancing .math.notranslate.nohighlight {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* =========================================================
+   B6 PROJECT PAGE POLISH
+   ========================================================= */
+
+/* Keep this research page closer to the clean homepage typography. */
+#b6-transmission-headroom-scottish-wind-balancing h1,
+#b6-transmission-headroom-scottish-wind-balancing h2,
+#b6-transmission-headroom-scottish-wind-balancing h3,
+#b6-transmission-headroom-scottish-wind-balancing h4 {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-style: normal !important;
+  letter-spacing: -0.025em !important;
+}
+
+#b6-transmission-headroom-scottish-wind-balancing h1 {
+  font-size: 2.55rem !important;
+  line-height: 1.08 !important;
+  font-weight: 700 !important;
+}
+
+#b6-transmission-headroom-scottish-wind-balancing h2 {
+  font-size: 1.55rem !important;
+  line-height: 1.25 !important;
+  font-weight: 650 !important;
+  margin-top: 2.5rem !important;
+}
+
+#b6-transmission-headroom-scottish-wind-balancing h3 {
+  font-size: 1.15rem !important;
+  font-weight: 650 !important;
+}
+
+/* Analytical figures should stay white, like report exhibits. */
+#b6-transmission-headroom-scottish-wind-balancing img {
+  display: block;
+  background: #ffffff !important;
+  padding: 0.55rem !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  border-radius: 2px !important;
+  margin: 1.25rem auto 2rem !important;
+  max-width: 100% !important;
+}
+
+/* Make both top links equally visible. */
+#b6-transmission-headroom-scottish-wind-balancing .hero-links a {
+  opacity: 1 !important;
+  color: #2a1118 !important;
+  background: #f4eee7 !important;
+  border-color: #f4eee7 !important;
+}
+
+/* Data-source links should read like references, not a wall of pills. */
+#b6-transmission-headroom-scottish-wind-balancing #data-sources a {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  color: #e1c29b !important;
+  font-family: "IBM Plex Sans", sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+/* Slightly more breathing room around display maths. */
+#b6-transmission-headroom-scottish-wind-balancing .math.notranslate.nohighlight {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* B6 project links */
+#b6-transmission-headroom-scottish-wind-balancing .b6-links {
+  display: flex !important;
+  gap: 0.7rem !important;
+  margin: 1rem 0 2rem !important;
+}
+
+#b6-transmission-headroom-scottish-wind-balancing .b6-links a,
+#b6-transmission-headroom-scottish-wind-balancing .b6-links a * {
+  background: transparent !important;
+  color: #e1c29b !important;
+  border: 1px solid rgba(225,194,155,0.55) !important;
+  border-radius: 4px !important;
+  padding: 0.45rem 0.7rem !important;
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  fill: currentColor !important;
+}
+
+#b6-transmission-headroom-scottish-wind-balancing .b6-links a:hover {
+  background: #e1c29b !important;
+  color: #2a1118 !important;
+}
