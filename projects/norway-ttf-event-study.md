@@ -199,4 +199,4 @@ The Python, PostgreSQL and statistical-analysis workflow is documented in the te
 
 [View technical repository ↗](https://github.com/jauricestudios/norway-ttf-event-study)
 
-*Research status: Observational daily event-window study. Results should not be interpreted as isolated causal estimates of Norwegian outage impacts on TTF prices.*cestudios/norway-ttf-event-study)
+*Research status: Observational daily event-window study. Results should not be interpreted as isolated causal estimates of Norwegian outage impacts on TTF prices.
