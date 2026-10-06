@@ -1,119 +1,202 @@
 # Norwegian Gas Outages & TTF
 
+*European Gas Markets · Python · PostgreSQL · Event Study*
+
 ## Research Question
 
-**How do near-term TTF prices behave around eligible first-revision Norwegian gas outage announcements, and do outage magnitude or publication timing help explain the observed response?**
+**How do near-term TTF prices behave around first announcements of unplanned Norwegian gas outages, and do outage magnitude or publication timing help explain the observed movements?**
 
-I reconstructed Gassco outage announcements, aligned their publication timestamps to observed TTF market dates and tested the distribution of subsequent price movements.
+Norwegian gas disruptions can change expectations of supply available to Europe. However, reported unavailable capacity does not necessarily represent an unexpected loss of gas. A disruption may already be anticipated, offset elsewhere in the Norwegian system or overshadowed by wider market developments.
+
+I reconstructed Gassco outage announcements using Python and PostgreSQL, aligned eligible first disclosures with observed TTF futures prices, and examined the distribution of daily returns around those announcements.
 
 ### At a glance
 
-| Metric | Value |
+| Metric | Result |
 |---|---:|
+| Gassco messages audited | **376** |
 | Eligible first-revision announcements | **166** |
 | Unique TTF market anchors | **130** |
-| Non-overlapping formal sample | **82** |
+| Non-overlapping analysis sample | **82** |
 | Median post-anchor return | **+0.057%** |
-| 95% bootstrap interval | **-0.526% to +0.925%** |
-| Wilcoxon p-value | **0.689** |
+| 95% bootstrap interval | **−0.526% to +0.925%** |
 
-**Main finding:** the formal sample does not show a common unconditional directional TTF response following these outage announcements.
+**Main finding:** The analysis does not identify a consistent directional TTF return across the selected daily event windows. Outage magnitude and publication timing also show little evidence of systematic associations with subsequent signed returns.
 
-Publication timing is important to the design. Of the 166 eligible announcements, 110 were published after the reported operational start of the outage and 56 were published before or at the start. The publication timestamp is therefore used as the information event for market alignment rather than assuming the physical outage start is when the market first learns about the disruption.
+These findings do not establish that Norwegian outages have no price impact. The study measures observed daily market movements rather than isolating the causal effect of each announcement.
 
-## Workflow
+## Data Engineering & Event Reconstruction
 
-The project separates data engineering, market alignment and statistical analysis rather than treating the raw outage file as an event-study dataset.
+The first challenge was constructing a reliable event dataset from operational outage disclosures.
 
-**Gassco outage files**<br>
-→ Python ingestion and type cleaning<br>
-→ PostgreSQL validation and eligibility rules<br>
-→ 166 eligible first-revision outage announcements<br>
-→ TTF market-data validation<br>
-→ publication-time alignment to observed TTF dates<br>
-→ 130 unique market anchors<br>
-→ 82 non-overlapping anchors for formal inference
+Gassco publishes information about infrastructure disruptions, including affected assets, unavailable capacity, operational periods and subsequent revisions. Treating each message as a separate market event would risk counting repeated information as independent announcements.
 
-## Event Funnel
+I developed a workflow that separates event reconstruction from market analysis.
+
+**Workflow**
+
+1. **Python ingestion:** Preserve original source files and standardise identifiers, timestamps and capacity fields.
+2. **PostgreSQL validation:** Examine revisions, capacity inconsistencies, publication timing and event eligibility.
+3. **Event reconstruction:** Identify 166 eligible first-revision reduction announcements, excluding later updates from the primary event definition.
+4. **TTF alignment:** Map disclosures onto an indexed series of observed futures prices.
+5. **Event consolidation:** Combine announcements sharing the same market-date anchor.
+6. **Statistical analysis:** Examine return distributions, outage magnitude, publication timing and overlapping-event sensitivity.
+
+### Event Funnel
 
 | Analytical level | Observations | Purpose |
 |---|---:|---|
-| Eligible announcements | **166** | Outage characteristics, publication timing and event composition |
-| Unique TTF market anchors | **130** | Avoid repeatedly counting the same TTF response window when announcements share an anchor |
-| Non-overlapping anchors | **82** | Formal inference with mechanically overlapping return windows removed |
+| Eligible announcements | **166** | Preserve outage and disclosure characteristics |
+| Unique market anchors | **130** | Avoid duplicating identical price-return windows |
+| Non-overlapping anchors | **82** | Reduce overlap between selected return windows |
 
-Multiple Gassco announcements can map to the same TTF market date. The 166 eligible announcements therefore correspond to 130 distinct market anchors rather than 166 independent price observations.
+Of the 130 unique anchors, **22 contain multiple eligible announcements**, accounting for 58 individual disclosures.
 
-The wider event windows also overlap for some nearby anchors. Requiring retained anchors to be separated by at least three observed TTF trading intervals leaves 82 non-overlapping observations for formal inference.
+These announcements cannot be treated as independent observations of market behaviour when several share the same TTF return window.
 
+The analysis therefore retains announcement-level data for operational characteristics while consolidating observations at the market-date level.
 
-## TTF Validation and Event Windows
+A further chronological selection requires at least three observed TTF price intervals between retained anchors, leaving 82 observations for exploratory statistical inference.
 
-The TTF series contains 591 unique daily observations from 1 July 2024 to 17 September 2026 and is validated before any event alignment is performed.
+This reduces mechanical overlap, although the selected sample remains dependent on the chronological selection rule.
 
-Each eligible Gassco announcement is then mapped to the observed TTF calendar:
+## TTF Validation & Market Alignment
 
-- 117 announcements have a same-date TTF observation;
-- 49 require forward alignment to the next observed market date;
-- of those 49, 30 are mapped forward by one calendar day, 18 by two days and one by three days.
+The latest TTF dataset contains **591 unique vendor-labelled price observations**, covering 1 July 2024 to 17 September 2026.
 
-Because the market series is daily rather than intraday, the analysis does not claim to isolate an instantaneous announcement reaction. Instead, several daily response windows are examined around the aligned market anchor.
+The series comes from Investing.com's Dutch TTF continuous futures data. Validation examines numerical consistency, duplicate observations, OHLC relationships, calendar gaps and return calculations.
 
-## Results
+Of the 166 eligible announcements:
 
-Across the 130 unique market anchors, the median post-anchor \([0,+1]\) return is +0.279%. This full sample is retained as a descriptive reference because some event windows overlap in trading time.
+- **117** have a same-calendar-date TTF observation.
+- **49** require alignment to a subsequent observed market date.
+- Of those 49, **30** move forward one calendar day, **18** move two days and **one** moves three days.
 
-Formal inference is based on the 82 non-overlapping anchors. Their median post-anchor return is +0.057%, with a 95% bootstrap confidence interval of -0.526% to +0.925%.
+### Why publication timing matters
 
-The formal tests do not identify a common unconditional directional response:
+Of the eligible announcements, **110 were published after the reported operational outage start**, while 56 were published before or at the start.
 
-| Question | Estimate | Test result |
-|---|---:|---:|
-| Typical post-anchor return | Median = **+0.057%** | Wilcoxon p = **0.689** |
-| Outage size vs return | Spearman rho = **0.050** | p = **0.656** |
-| Publication timing | Medians = **-0.246% / +0.753%** | Mann-Whitney p = **0.496** |
+The physical beginning of an outage and the arrival of new public information are therefore not necessarily the same event.
 
+The analysis uses first disclosure as the conceptual information event rather than assuming the operational start represents when the market first learns about the disruption.
 
-### Post-announcement return distribution
+The primary return is calculated as:
+
+\[
+R_{i,[0,+1]}=100\ln\left(\frac{P_{a_i+1}}{P_{a_i}}\right)
+\]
+
+where \(P_{a_i}\) is the price at the assigned market anchor and \(P_{a_i+1}\) is the next observed price.
+
+Because the dataset contains daily observations rather than intraday quotations, this return cannot necessarily capture the entire market reaction following publication.
+
+## Empirical Results
+
+### 1. Distribution of TTF returns
+
+Across the 130 unique market anchors, the reported median post-anchor return is **+0.279%**.
+
+The full sample is retained for descriptive analysis because some event windows overlap.
+
+The 82-anchor sample produces:
+
+| Statistic | Result |
+|---|---:|
+| Median return | **+0.057%** |
+| Reported 95% bootstrap interval | **−0.526% to +0.925%** |
+| Wilcoxon signed-rank p-value | **0.689** |
+
+The reported interval includes zero, and the Wilcoxon test does not detect a systematic signed-rank shift away from zero.
+
+These results do not demonstrate that the underlying economic effect is zero. The bootstrap also treats the selected observations as independent, an assumption that is not fully established.
 
 ![Distribution of post-announcement TTF returns](../norway_ttf_event_study/charts/ttf_post_announcement_return_distribution.png)
 
-The non-overlapping event sample shows a wide spread of positive and negative post-announcement returns, with the median close to zero. This visual pattern is consistent with the formal test, which does not identify a common directional shift in TTF after the eligible outage announcements.
+*Figure 1. Distribution of observed anchor-to-next-observation returns. Both positive and negative movements occur, with the sample median close to zero.*
 
+### 2. Outage magnitude and subsequent returns
 
-### Outage magnitude and subsequent TTF return
+I examined whether larger reported capacity reductions were associated with systematically different TTF returns.
+
+The analysis uses the largest individual communicated outage within each market anchor.
+
+| Measure | Result |
+|---|---:|
+| Spearman rank correlation | **+0.050** |
+| p-value | **0.656** |
+
+The estimated monotonic relationship between outage magnitude and subsequent signed returns is close to zero.
 
 ![Outage magnitude versus subsequent TTF return](../norway_ttf_event_study/charts/outage_magnitude_vs_ttf_return.png)
 
-Larger announced outages are followed by both positive and negative TTF movements. In the 82 non-overlapping anchors, the Spearman rank correlation between the largest outage within the market anchor and the subsequent return is 0.050, with a p-value of 0.656.
+*Figure 2. Largest individual reported outage within each selected market anchor against the subsequent daily TTF return.*
 
+Reported unavailable capacity is not equivalent to the unexpected aggregate loss of Norwegian gas supply. This distinction limits what can be inferred from the correlation.
 
+### 3. Publication timing
 
+The analysis also compares returns based on whether the largest outage announcement was published before or after its reported operational start.
 
-## Analytical Interpretation
+| Publication group | Median return |
+|---|---:|
+| Published after operational start | **−0.246%** |
+| Published before or at operational start | **+0.753%** |
 
-The more important finding is that headline outage capacity is a weak proxy for the market-relevant supply shock.
+The Mann–Whitney test gives **p = 0.496**, providing little evidence of systematic rank separation between the groups.
 
-A large announced reduction may have limited price impact if it was already anticipated, offset elsewhere in the Norwegian system or absorbed by prevailing market conditions. Conversely, a smaller outage may matter more if it represents genuinely new information about near-term supply.
+This comparison concerns publication relative to the physical outage start, not publication relative to a verified TTF closing-price timestamp.
 
-The analysis therefore suggests that a stronger market-risk signal would measure the **unexpected change in net Norwegian supply at the time of publication**, rather than relying on announced outage size alone.
+### 4. Event versus non-event periods
 
-Publication timing reinforces this point: the physical start of an outage and the arrival of new public information are not the same event, so market analysis should anchor on when information becomes observable rather than simply when the infrastructure disruption begins.
+To examine whether outage-associated market movements were unusual, I also compared their absolute returns with selected non-event TTF observations.
 
+| Sample | Mean absolute return |
+|---|---:|
+| Event-associated anchors | **2.40%** |
+| Selected non-event dates | **2.72%** |
 
+In this descriptive comparison, event-associated windows do not exhibit larger average absolute returns.
 
-## Limitations
+However, the comparison is not a fully matched counterfactual. Differences in volatility regimes, calendar conditions and competing market information may affect the results.
 
-The analysis uses daily market data, so it cannot isolate the immediate intraday price reaction to a timestamped announcement.
+## Commercial Interpretation
 
-The TTF dataset is a vendor-provided continuous futures series. The reported price should be interpreted as the vendor-reported closing price for that series rather than an official ICE settlement, and the historical contract-roll methodology has not been independently established.
+The central economic distinction is between **headline unavailable capacity and the unexpected change in net Norwegian supply**.
 
-The event study is descriptive rather than causal. It does not directly measure the unexpected change in aggregate Norwegian supply, and contemporaneous market information may influence the same return windows.
+A large outage may produce little observable price movement if the market already anticipated it, if production elsewhere offsets the disruption, or if other developments dominate.
 
-The non-overlapping sample reduces mechanical dependence caused by shared return intervals, but it does not imply that observations are fully independent across wider market regimes.
+Conversely, a smaller disruption could be commercially important if it reveals an unexpected supply constraint during a period of tight European gas availability.
+
+For an energy-market analyst, the more useful question is therefore:
+
+**How much new supply information has reached the market, what alternatives are available, and how exposed is the European gas balance at that moment?**
+
+A stronger risk model would combine verified publication timing with actual Norwegian gas flows, affected infrastructure, outage duration, LNG availability, storage, weather and the TTF forward curve.
+
+The current study establishes an event-reconstruction and exploratory analytical framework, rather than a validated forecasting or trading model.
+
+## Limitations & Further Research
+
+Several limitations remain important:
+
+**Price observability:** Daily prices cannot isolate an instantaneous announcement reaction. The Gassco publication timezone and precise vendor closing-price timestamp remain unverified.
+
+**Continuous futures construction:** The historical TTF series is vendor-provided. Its contract-roll methodology and exact price definition have not been independently established.
+
+**Supply-shock measurement:** Announced unavailable capacity does not directly measure realised lost gas flows or the unexpected information priced by market participants.
+
+**Sample selection:** The 82-anchor sample reduces mechanical return overlap but depends on a chronological selection rule. Related outages, shared market news and changes in volatility regimes may still create statistical dependence.
+
+**Reproducibility:** The latest findings are documented in the analysis notebooks, but the complete final dataset and upstream selection pipeline have not yet been independently rerun together.
+
+The next stage is to verify market-price chronology, test alternative non-overlapping event selections and develop a more closely matched non-event benchmark.
+
+These improvements would help establish whether Norwegian outage disclosures provide information beyond prevailing TTF volatility and wider European gas-market conditions.
 
 ## Technical Repository
 
-The full SQL/Python workflow, validation notebooks and statistical analysis are available in the technical repository:
+The Python, PostgreSQL and statistical-analysis workflow is documented in the technical repository, including market-data validation, event alignment and the latest event-study notebooks.
 
 [View technical repository ↗](https://github.com/jauricestudios/norway-ttf-event-study)
+
+*Research status: Observational daily event-window study. Results should not be interpreted as isolated causal estimates of Norwegian outage impacts on TTF prices.*cestudios/norway-ttf-event-study)
