@@ -31,3 +31,8 @@ _build/
 .DS_Store
 .venv/
 .venv_energy/
+
+# B6 derived inputs and row-level model predictions
+projects/b6-transmission-headroom/data/*.csv
+projects/b6-transmission-headroom/results/*predictions*.csv
+projects/b6-transmission-headroom/docs/*schema_only*.sql

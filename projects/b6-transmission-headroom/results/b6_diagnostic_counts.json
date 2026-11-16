@@ -1,0 +1,11 @@
+{
+  "n_rows": 31532,
+  "n_train": 25198,
+  "n_test": 6334,
+  "n_train_days": 525,
+  "n_test_days": 132,
+  "cut_date": "2025-10-07",
+  "train_event_rate": 0.5932216842606556,
+  "test_event_rate": 0.6908746447742343,
+  "n_test_10000_mw_limit": 46
+}
