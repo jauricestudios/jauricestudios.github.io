@@ -1,0 +1,13 @@
+Added_model,Comparator,Metric,Point_estimate,Bootstrap_2.5pct,Bootstrap_97.5pct,N_boot
+M1 — Original + B6 headroom,M0 — Original linear baseline,AUC_delta,0.045119469555360725,0.025342898489991647,0.06849800098869928,500
+M1 — Original + B6 headroom,M0 — Original linear baseline,Brier_improvement,0.02265069757222976,0.008801306956626124,0.03771676430136855,500
+M1 — Original + B6 headroom,M0 — Original linear baseline,logloss_improvement,0.05540035512368152,0.015861507756009977,0.10043955729113735,500
+M3 — Nonlinear baseline + linear B6,M2 — Nonlinear system baseline,AUC_delta,0.04834254723974962,0.026565800557814608,0.07333296002313211,500
+M3 — Nonlinear baseline + linear B6,M2 — Nonlinear system baseline,Brier_improvement,0.02445202494907181,0.009234071909415833,0.04025085586850113,500
+M3 — Nonlinear baseline + linear B6,M2 — Nonlinear system baseline,logloss_improvement,0.05164743789392501,0.009843108674453416,0.09757685709724973,500
+M4 — Nonlinear baseline + nonlinear B6,M2 — Nonlinear system baseline,AUC_delta,0.06200059569048744,0.0349768061646403,0.09591950089545372,500
+M4 — Nonlinear baseline + nonlinear B6,M2 — Nonlinear system baseline,Brier_improvement,0.033513745880861895,0.014762655723616062,0.053938583734080996,500
+M4 — Nonlinear baseline + nonlinear B6,M2 — Nonlinear system baseline,logloss_improvement,0.07504641893331704,0.02104916866353116,0.13276051821323334,500
+M4 — Nonlinear baseline + nonlinear B6,M3 — Nonlinear baseline + linear B6,AUC_delta,0.013658048450737814,0.004733051289237039,0.024100889106423457,500
+M4 — Nonlinear baseline + nonlinear B6,M3 — Nonlinear baseline + linear B6,Brier_improvement,0.009061720931790085,0.002114625102167166,0.015813318428844873,500
+M4 — Nonlinear baseline + nonlinear B6,M3 — Nonlinear baseline + linear B6,logloss_improvement,0.02339898103939203,0.00012342668428430906,0.05387276468972529,500
