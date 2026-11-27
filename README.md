@@ -21,6 +21,10 @@ This project looks at how near-term TTF prices behave around Norwegian gas outag
 
 I reconstructed Gassco outage messages and revisions so that the timing of the first announcement could be aligned properly with market dates. The dataset contains 376 messages, including 188 first announcements.
 
+### US LNG Exports & Trade Flow Analysis
+
+[Research repository](https://github.com/jauricestudios/atlantic-lng-research) — Public DOE export records, monthly trade flows and Excel analysis.
+
 ## Tools
 
 Python · PostgreSQL · SQL · R · Excel

@@ -128,6 +128,35 @@ PostgreSQL · event study · time series
 </p>
 </article>
 
+<article class="work-entry">
+
+<div class="work-meta">
+  <span class="work-number">03</span>
+  <span>GLOBAL LNG</span>
+</div>
+
+<h2>US LNG Exports &amp; Trade Flow Analysis</h2>
+
+<p class="work-question">How did US LNG export volumes and destinations change in 2026 compared with previous years?</p>
+
+<p class="work-description">Analysis of US Department of Energy export records to compare regional trade flows, destination shares and individual export locations, with a short Excel exercise using published LNG destination assessments.</p>
+
+<div class="work-metrics">
+  <span><strong>4,360</strong> reporting rows</span>
+  <span><strong>9</strong> export locations</span>
+  <span><strong>45</strong> destination countries</span>
+</div>
+
+<p class="work-methods">Python · pandas · Excel · trade flow analysis</p>
+
+<p class="work-link">
+  <a href="projects/us-lng-export-analysis.html">View project →</a>
+  &nbsp;&nbsp; <a href="https://github.com/jauricestudios/atlantic-lng-research">GitHub ↗</a>
+  &nbsp;&nbsp; <a href="https://github.com/jauricestudios/atlantic-lng-research/blob/main/publication/US_LNG_Export_Analysis.pdf">PDF ↗</a>
+  &nbsp;&nbsp; <a href="https://github.com/jauricestudios/atlantic-lng-research/raw/refs/heads/main/publication/US_LNG_Export_Analysis.xlsx">Excel ↗</a>
+</p>
+</article>
+
 </section>
 
 

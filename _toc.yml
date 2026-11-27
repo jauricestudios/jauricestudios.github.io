@@ -10,6 +10,9 @@ parts:
       - file: projects/b6-transmission-headroom
         title: B6 Transmission Headroom
 
+      - file: projects/us-lng-export-analysis
+        title: US LNG Exports & Trade Flows
+
   - caption: Data & Methods
     chapters:
       - file: projects/uk-gas-balance/sources
