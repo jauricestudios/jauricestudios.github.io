@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>US LNG Exports &amp; Trade Flow Analysis | Jaurice O’Connor</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#2b151a;color:#f5ede6;font:16px/1.65 Arial,Helvetica,sans-serif}main{max-width:850px;margin:auto;padding:44px 26px 70px}nav{display:flex;gap:24px;flex-wrap:wrap;font-size:14px;margin-bottom:52px}a{color:inherit;text-underline-offset:4px}h1{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-1.7px;margin:0 0 22px}h2{font-size:25px;letter-spacing:-.5px;margin:38px 0 12px}p{margin:0 0 18px}figure{margin:24px 0}img{width:100%;height:auto;display:block;background:white}figcaption{font-size:13px;color:#d1bfc2;margin-top:8px}footer{border-top:1px solid #5a383e;margin-top:48px;padding-top:22px;font-size:13px;color:#d1bfc2}code{font-size:.9em} </style></head><body><main><nav><a href="../intro.html">← Projects</a><a href="https://github.com/jauricestudios/atlantic-lng-research">GitHub</a></nav><h1>US LNG Exports &amp; Trade Flow Analysis</h1>
+<p>January 2024 – August 2026</p>
+<p>How did US LNG export volumes and destinations change in 2026 compared with previous years?</p>
+<p>This project uses US Department of Energy (DOE) export data to examine monthly flows, destination shares and differences across countries and export locations. A short Excel exercise compares published LNG destination assessments.</p>
+<p><a href="https://github.com/jauricestudios/atlantic-lng-research/blob/main/publication/US_LNG_Export_Analysis.pdf">Research note (PDF)</a> · <a href="https://github.com/jauricestudios/atlantic-lng-research/raw/refs/heads/main/publication/US_LNG_Export_Analysis.xlsx">Excel analysis</a></p>
+<p><a href="https://github.com/jauricestudios/atlantic-lng-research">Python research repository</a></p>
+<h2>Data</h2>
+<p>The <a href="https://www.energy.gov/hgeo/articles/natural-gas-imports-and-exports-monthly-2026">DOE export detail</a> was restricted to January 2024–August 2026: 4,360 reporting rows, nine export locations and 45 destination countries. The cleaned panel contains 2,439 terminal-country-month records. Volumes are expressed in Bcf/day using calendar days.</p>
+<p>Python was used for aggregation, historical comparisons and the volume/share decomposition. The Excel workbook contains the cleaned records, formula-based summaries, a regional pivot table and a small published-netback sensitivity exercise.</p>
+<h2>Results</h2>
+<figure><img src="us-lng-export-analysis/figures/regional-flows.png" alt="Monthly regional export rates, Bcf/day"><figcaption>Monthly regional export rates, Bcf/day</figcaption></figure>
+<p>Asian-bound exports averaged 5.81 Bcf/day in March–August 2026, up from 1.75 in January–February. Total covered exports fell slightly over the same comparison, from 17.39 to 17.09 Bcf/day.</p>
+<figure><img src="us-lng-export-analysis/figures/asian-share-by-month.png" alt="Asian destination share by calendar month"><figcaption>Asian destination share by calendar month</figcaption></figure>
+<p>The Asian share rose more sharply within 2026 than in either comparison year, but remained below the corresponding 2024 month throughout January–August.</p>
+<figure><img src="us-lng-export-analysis/figures/country-contributions.png" alt="Changes in Asian-bound export rates by country, March–August 2026 versus 2024"><figcaption>Changes in Asian-bound export rates by country, March–August 2026 versus 2024</figcaption></figure>
+<p>Taiwan recorded the largest positive change (+0.62 Bcf/day), while China's recorded volume fell by 0.63 Bcf/day. The regional increase masks quite different country-level movements.</p>
+<figure><img src="us-lng-export-analysis/figures/terminal-export-rates.png" alt="Total export rates by location, March–August 2024 and 2026"><figcaption>Total export rates by location, March–August 2024 and 2026</figcaption></figure>
+<p>Plaquemines and Golden Pass accounted for about 73% of the net increase in Asian-bound export rates versus the matched 2024 period. Higher overall exports contributed more to that increase than changes in destination shares.</p>
+<h2>Destination economics</h2>
+<p>The workbook also compares three published market snapshots for delivery to Northeast Asia versus Europe. In the April example, an additional Panama cost of $0.533/MMBtu removes the assessed advantage over Europe, holding other values fixed. This is a sensitivity exercise, not a historical trading strategy.</p>
+<h2>Notes</h2>
+<p>The data describe reported export destinations rather than individual cargo diversions. The commercial assessments are selected examples with different valuation conventions; they are not a continuous historical series. Definitions, calculations and original sources are in the PDF and Excel workbook.</p>
+<p>The physical analysis uses the frozen DOE panel from commit <code>cc31968</code>. The raw source workbook is obtained separately from DOE. AI assistance was used in code development, analytical methodology, workbook and report preparation.</p><footer>Jaurice O’Connor · 2026</footer></main></body></html>
